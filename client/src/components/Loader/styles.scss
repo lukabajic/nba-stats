@@ -27,6 +27,11 @@
   width: 1em;
   height: 4em;
 
+  &--blue {
+    color: var(--blue);
+    background: var(--blue);
+  }
+
   &:after,
   &:before {
     background: var(--white);
@@ -37,6 +42,11 @@
     position: absolute;
     top: 0;
     content: "";
+  }
+
+  &--blue:before,
+  &--blue:after {
+    background: var(--blue);
   }
 
   &:before {

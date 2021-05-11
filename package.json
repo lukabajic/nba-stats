@@ -13,6 +13,6 @@
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "start": "concurrently \"yarn server\" \"yarn client\""
   }
 }

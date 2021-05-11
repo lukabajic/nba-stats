@@ -20,3 +20,15 @@ body {
     display: none;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .hide-on-small-devices {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .show-on-large-devices {
+    display: none;
+  }
+}

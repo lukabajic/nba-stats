@@ -3,15 +3,9 @@ import cn from "classnames";
 
 import teams from "../../../utls/teams";
 import { Spinner } from "../../../components/Loader";
+import Stat from "../../../components/Stat";
 
 import "./styles.scss";
-
-const Stat = ({ name, amount }) => (
-  <div className="RecentGames__stat">
-    <p className="RecentGames__stat-name">{name}</p>
-    <p className="RecentGames__stat-amount">{amount}</p>
-  </div>
-);
 
 const RecentGames = ({ id }) => {
   // no need to  store this in a reducer
@@ -35,7 +29,7 @@ const RecentGames = ({ id }) => {
   if (loading || !data)
     return (
       <div className="RecentGames__loading">
-        <Spinner />
+        <Spinner blue />
       </div>
     );
 

@@ -109,28 +109,4 @@
       color: var(--black);
     }
   }
-
-  &__stat {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin: 0 1.5rem;
-
-    &:not(:last-child) {
-      margin: 0 1.5rem 1rem;
-    }
-  }
-
-  &__stat-name {
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-    color: var(--gray);
-  }
-
-  &__stat-amount {
-    font-size: 1.6rem;
-    line-height: 2rem;
-    color: var(--black);
-  }
 }

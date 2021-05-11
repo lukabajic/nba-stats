@@ -60,7 +60,7 @@ const PlayerDetails = ({ history, match, players }) => {
   // no need to  store this in a reducer
   // will not be using this data anywhere else
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const page = useRef(null);
@@ -69,9 +69,11 @@ const PlayerDetails = ({ history, match, players }) => {
   const player = players?.find((p) => p.id === id);
 
   useEffect(() => {
-    if (player && id) {
-      setLoading(true);
+    window.scrollTo(0, 0);
+  }, []);
 
+  useEffect(() => {
+    if (player && id) {
       fetch(`/api/player-gamelog/${id}`)
         .then((res) => res.json())
         .then((data) => {

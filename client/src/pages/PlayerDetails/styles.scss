@@ -171,6 +171,13 @@
     max-width: 110rem;
   }
 
+  &__loading,
+  &__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__game {
     box-shadow: var(--box-shadow);
 

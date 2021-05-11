@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { getPlayers } from "../../store/actions/players";
 
+import Loader from "../../components/Loader";
+
 import "./styles.scss";
 
 const Index = ({ players, loading, error, getPlayers }) => {
@@ -12,7 +14,7 @@ const Index = ({ players, loading, error, getPlayers }) => {
     }
   }, [players, getPlayers]);
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <Loader />;
 
   if (error) return <div>Erorr</div>;
 

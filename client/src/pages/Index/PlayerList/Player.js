@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 
-import teams from "../../utls/teams";
+import teams from "../../../utls/teams";
 
 import "./styles.scss";
 

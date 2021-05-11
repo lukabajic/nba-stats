@@ -5,7 +5,7 @@ import { getPlayers } from "../../store/actions/players";
 
 import Loader from "../../components/Loader";
 import Header from "../../components/Header";
-import PlayerList from "../../components/PlayerList";
+import PlayerList from "./PlayerList";
 
 import "./styles.scss";
 

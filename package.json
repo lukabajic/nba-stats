@@ -15,5 +15,9 @@
     "server": "nodemon src/server/index.js",
     "build": "cd client/ && npm install && npm run build",
     "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
   }
 }

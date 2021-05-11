@@ -26,10 +26,12 @@ exports.getPlayers = async (req, res) => {
             id: p.personId,
             firstName: p.firstName,
             lastName: p.lastName,
+            teamId: p.teamId,
             number: p.jersey,
             height: p.heightMeters,
             weight: p.weightKilograms,
             country: p.country,
+            position: p.pos,
           })
       );
 

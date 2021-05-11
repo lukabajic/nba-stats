@@ -12,7 +12,7 @@ const Header = ({ displayName }) => (
         className="Header__logo-img"
       />
     </Link>
-    <h1 className="Header__text">{displayName || "Player Stats"}</h1>
+    <h1 className="Header__text">{displayName || "Players"}</h1>
   </header>
 );
 

@@ -5,6 +5,7 @@ import { getPlayers } from "../../store/actions/players";
 
 import Loader from "../../components/Loader";
 import Header from "../../components/Header";
+import PlayerList from "../../components/PlayerList";
 
 import "./styles.scss";
 
@@ -23,11 +24,7 @@ const Index = ({ players, loading, error, getPlayers }) => {
     <>
       <Header />
       <main className="Main">
-        <div className="PlayersList">
-          {players?.map((p) => (
-            <div>{p.firstName}</div>
-          ))}
-        </div>
+        <PlayerList players={players} />
       </main>
     </>
   );

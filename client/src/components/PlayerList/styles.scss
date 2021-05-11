@@ -9,9 +9,11 @@
 
   background-color: #fff;
 
-  color: #2d1115;
+  color: var(--black);
 
   animation: animation 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+
+  box-shadow: var(--box-shadow);
 
   &:not(:last-child) {
     margin-bottom: 1rem;
@@ -32,7 +34,7 @@
   }
 
   &__first-name {
-    color: #7e9181;
+    color: var(--gray);
 
     font-size: 1.7rem;
     line-height: 1.47059;
@@ -83,7 +85,7 @@
   }
 
   &__info-bottom {
-    color: #2d1115;
+    color: var(--black);
 
     letter-spacing: 0.012em;
     line-height: 1.4211;

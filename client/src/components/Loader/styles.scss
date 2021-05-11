@@ -14,7 +14,7 @@
 }
 
 .Loader {
-  color: #ffffff;
+  color: var(--white);
   text-indent: -9999em;
   margin: 88rem auto;
   position: relative;
@@ -22,14 +22,14 @@
   transform: translateZ(0);
   animation-delay: -0.16s;
 
-  background: #ffffff;
+  background: var(--white);
   animation: load1 1s infinite ease-in-out;
   width: 1em;
   height: 4em;
 
   &:after,
   &:before {
-    background: #ffffff;
+    background: var(--white);
     animation: load1 1s infinite ease-in-out;
     width: 1rem;
     height: 4rem;

@@ -18,7 +18,7 @@ const Index = ({ players, loading, error, getPlayers }) => {
 
   if (loading) return <Loader />;
 
-  if (error) return <div>Erorr</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <>

@@ -1,0 +1,72 @@
+.PlayersList {
+  padding-top: 1.5rem;
+}
+
+.Player {
+  display: flex;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  background-color: #fff;
+
+  color: #2d1115;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__image {
+    width: 6.4rem;
+    height: 5rem;
+    margin-right: 1rem;
+  }
+
+  &__display-name {
+    margin-right: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__first-name {
+    color: #7e9181;
+
+    font-size: 1.7rem;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+  }
+
+  &__last-name {
+    letter-spacing: 0.012em;
+    line-height: 1.4211;
+    font-size: 1.9rem;
+    font-weight: 500;
+  }
+
+  &__info {
+    min-width: 4.8rem;
+    margin-left: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__team {
+    font-weight: 300;
+    font-size: 1.7rem;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+  }
+
+  &__position {
+    color: #2d1115;
+
+    letter-spacing: 0.012em;
+    line-height: 1.4211;
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+}

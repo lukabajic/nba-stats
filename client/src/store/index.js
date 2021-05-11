@@ -2,7 +2,7 @@ import { createStore, compose, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 // reducers
-import playersReducer from "./reducers/playersReducer";
+import playersReducer from "./reducers/players";
 
 // redux dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

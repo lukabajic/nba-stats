@@ -1,0 +1,15 @@
+$blue: #17408b;
+$red: #c9082a;
+$white: #ffffff;
+$black: #2d1115;
+$gray: #7e9181;
+
+body {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 1.6rem;
+  color: $black;
+  font-weight: 400;
+}

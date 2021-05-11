@@ -1,5 +1,7 @@
 const fetch = require("node-fetch");
 
+const { ListPlayer } = require("./models");
+
 const { catchError, throwError } = require("./utils/errors");
 
 exports.getPlayers = async (req, res) => {
@@ -15,8 +17,21 @@ exports.getPlayers = async (req, res) => {
         );
 
       const {
-        league: { standard: players },
+        league: { standard },
       } = results;
+
+      const players = standard.map(
+        (p) =>
+          new ListPlayer({
+            id: p.personId,
+            firstName: p.firstName,
+            lastName: p.lastName,
+            number: p.jersey,
+            height: p.heightMeters,
+            weight: p.weightKilograms,
+            country: p.country,
+          })
+      );
 
       res.status(200).json({
         statusCode: 200,

@@ -5,6 +5,7 @@ import cn from "classnames";
 
 import ChevronLeft from "./ChevronLeft";
 import RecentGames from "./RecentGames";
+import PlayerInfo from "./PlayerInfo";
 
 import "./styles.scss";
 
@@ -23,11 +24,7 @@ const Head = ({ id, firstName, lastName }) => (
   </div>
 );
 
-const PlayerInfo = ({ ...all }) => {
-  return <div></div>;
-};
-
-const Body = ({ player, ...rest }) => {
+const Body = ({ player, id }) => {
   const [activeTab, setActiveTab] = useState("games");
 
   return (
@@ -50,19 +47,13 @@ const Body = ({ player, ...rest }) => {
           Player Info
         </p>
       </div>
-      {activeTab === "games" && <RecentGames {...rest} />}
+      {activeTab === "games" && <RecentGames id={id} />}
       {activeTab === "info" && <PlayerInfo {...player} />}
     </div>
   );
 };
 
 const PlayerDetails = ({ history, match, players }) => {
-  // no need to  store this in a reducer
-  // will not be using this data anywhere else
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const page = useRef(null);
 
   const { id } = match.params;
@@ -71,18 +62,6 @@ const PlayerDetails = ({ history, match, players }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    if (player && id) {
-      fetch(`/api/player-gamelog/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data.games);
-          setLoading(false);
-        })
-        .catch((err) => setError(err));
-    }
-  }, [player, id]);
 
   // a user might type out the url with a non existant id
   if (!player) return <Redirect to="/" />;
@@ -103,7 +82,7 @@ const PlayerDetails = ({ history, match, players }) => {
         <ChevronLeft />
       </button>
       <Head id={id} firstName={player.firstName} lastName={player.lastName} />
-      <Body data={data} loading={loading} error={error} player={player} />
+      <Body id={id} player={player} />
     </div>
   );
 };

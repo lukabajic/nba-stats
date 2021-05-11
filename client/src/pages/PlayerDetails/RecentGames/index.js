@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import cn from "classnames";
 
 import teams from "../../../utls/teams";
@@ -13,8 +13,26 @@ const Stat = ({ name, amount }) => (
   </div>
 );
 
-const RecentGames = ({ data: games, loading, error }) => {
-  if (loading)
+const RecentGames = ({ id }) => {
+  // no need to  store this in a reducer
+  // will not be using this data anywhere else
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (id) {
+      fetch(`/api/player-gamelog/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data.games);
+          setLoading(false);
+        })
+        .catch((err) => setError(err));
+    }
+  }, [id]);
+
+  if (loading || !data)
     return (
       <div className="RecentGames__loading">
         <Spinner />
@@ -25,7 +43,7 @@ const RecentGames = ({ data: games, loading, error }) => {
 
   return (
     <div className="RecentGames">
-      {games?.map((g) => {
+      {data?.map((g) => {
         const opponents = !g.isHomeGame ? g.hTeam : g.vTeam;
 
         return (

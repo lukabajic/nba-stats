@@ -6,22 +6,10 @@ import teams from "../../utls/teams";
 
 import "./styles.scss";
 
-const Info = ({
-  top,
-  bottom,
-  hideOnMobile,
-  hideOnSmallDevices,
-  showOnLargeDevices,
-  large,
-  xl,
-}) => (
+const Info = ({ top, bottom, hideOnMobile }) => (
   <div
     className={cn("Player__info", {
       "hide-on-mobile": hideOnMobile,
-      "hide-on-small-devices": hideOnSmallDevices,
-      "show-on-large-devices": showOnLargeDevices,
-      "Player__info--large": large,
-      "Player__info--xl": xl,
     })}
   >
     <p className="Player__info-top">{top}</p>
@@ -29,17 +17,7 @@ const Info = ({
   </div>
 );
 
-const Player = ({
-  id,
-  firstName,
-  lastName,
-  teamId,
-  number,
-  position,
-  height,
-  weight,
-  country,
-}) => {
+const Player = ({ id, firstName, lastName, teamId, number, position }) => {
   return (
     <Link className="Player" to={`/player/${id}`}>
       <img
@@ -55,19 +33,6 @@ const Player = ({
         <Info hideOnMobile top="num" bottom={number} />
         <Info hideOnMobile top="pos" bottom={position} />
         <Info top="team" bottom={teams[teamId]?.abbreviation} />
-        <Info
-          hideOnSmallDevices
-          large
-          top="height"
-          bottom={`${(height * 100).toFixed(0)} cm`}
-        />
-        <Info
-          hideOnSmallDevices
-          large
-          top="weight"
-          bottom={`${Number(weight).toFixed(0)} kg`}
-        />
-        <Info showOnLargeDevices xl top="country" bottom={country} />
       </div>
     </Link>
   );

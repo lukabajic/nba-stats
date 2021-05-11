@@ -10,16 +10,14 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import Index from "./pages/Index";
-import Player from "./pages/Player";
+import PlayerDetails from "./pages/PlayerDetails";
 
 const App = () => (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route path="/">
-          <Index />
-          <Route path="/player/:id" exact component={Player} />
-        </Route>
+        <Route path="/" exact component={Index} />
+        <Route path="/player/:id" exact component={PlayerDetails} />
         <Redirect to="/" />
       </Switch>
     </Router>

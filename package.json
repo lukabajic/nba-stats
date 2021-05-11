@@ -13,7 +13,7 @@
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon src/server/index.js",
-    "build": "cd client/ && npm run install && npm run build",
+    "build": "cd client/ && npm install && npm run build",
     "start": "concurrently \"yarn server\" \"yarn client\""
   }
 }

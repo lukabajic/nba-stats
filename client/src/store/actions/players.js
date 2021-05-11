@@ -1,4 +1,3 @@
-import e from "express";
 import * as actionTypes from "./actionTypes";
 
 const getPlayersStart = () => ({ type: actionTypes.GET_PLAYERS_START });

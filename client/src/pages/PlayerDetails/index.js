@@ -24,7 +24,7 @@ const Head = ({ id, firstName, lastName }) => (
   </div>
 );
 
-const Body = ({ player, id }) => {
+const Body = ({ id }) => {
   const [activeTab, setActiveTab] = useState("games");
 
   return (
@@ -44,11 +44,11 @@ const Body = ({ player, id }) => {
             "PlayerDetails__tab--active": activeTab === "info",
           })}
         >
-          Player Info
+          Player Season
         </p>
       </div>
       {activeTab === "games" && <RecentGames id={id} />}
-      {activeTab === "info" && <PlayerInfo {...player} />}
+      {activeTab === "info" && <PlayerInfo id={id} />}
     </div>
   );
 };
@@ -82,7 +82,7 @@ const PlayerDetails = ({ history, match, players }) => {
         <ChevronLeft />
       </button>
       <Head id={id} firstName={player.firstName} lastName={player.lastName} />
-      <Body id={id} player={player} />
+      <Body id={id} />
     </div>
   );
 };

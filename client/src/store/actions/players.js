@@ -2,9 +2,9 @@ import * as actionTypes from "./actionTypes";
 
 const getPlayersStart = () => ({ type: actionTypes.GET_PLAYERS_START });
 
-const getPlayersSuccess = (token) => ({
+const getPlayersSuccess = (players) => ({
   type: actionTypes.GET_PLAYERS_SUCCESS,
-  token,
+  players,
 });
 
 const getPlayersFail = (error) => ({
@@ -20,9 +20,7 @@ export const getPlayers = () => async (dispatch) => {
     const data = await res.json();
 
     if (!data.error) {
-      dispatch(getPlayersSuccess([]));
-
-      console.log(data.players);
+      dispatch(getPlayersSuccess(data.players));
     } else {
       dispatch(getPlayersFail(data.error));
     }

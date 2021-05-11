@@ -16,8 +16,10 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route path="/" exact component={Index} />
-        <Route path="/player/:id" exact component={Player} />
+        <Route path="/">
+          <Index />
+          <Route path="/player/:id" exact component={Player} />
+        </Route>
         <Redirect to="/" />
       </Switch>
     </Router>

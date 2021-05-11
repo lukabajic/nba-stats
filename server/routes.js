@@ -8,4 +8,6 @@ router.get("/players", controller.getPlayers);
 
 router.get("/player-gamelog/:id", controller.getPlayerGamelog);
 
+router.get("/player-profile/:id", controller.getPlayerProfile);
+
 module.exports = router;

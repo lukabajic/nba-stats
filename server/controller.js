@@ -60,3 +60,21 @@ exports.getPlayerGamelog = async (req, res) => {
     })
     .catch((err) => catchError(req, err));
 };
+
+exports.getPlayerProfile = async (req, res) => {
+  const { id } = req.params;
+
+  fetch(`http://data.nba.net/prod/v1/2019/players/${id}_profile.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      const {
+        league: { standard: stats },
+      } = data;
+
+      res.status(200).json({
+        statusCode: 200,
+        stats,
+      });
+    })
+    .catch((err) => catchError(req, err));
+};

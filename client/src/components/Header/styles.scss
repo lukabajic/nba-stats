@@ -1,0 +1,33 @@
+.Header {
+  position: fixed;
+
+  width: 100%;
+  padding: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #ffffff;
+
+    margin-right: 1rem;
+  }
+
+  &__logo-img {
+    max-width: 5.6rem;
+
+    @media only screen and (min-width: 768px) {
+      max-width: 7.2rem;
+    }
+  }
+
+  &__text {
+    font-size: 3.2rem;
+    line-height: 1.125;
+    letter-spacing: 0.004em;
+    font-weight: 600;
+  }
+}

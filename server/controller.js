@@ -5,7 +5,7 @@ const { ListPlayer } = require("./models");
 const { catchError, throwError } = require("./utils/errors");
 
 exports.getPlayers = async (req, res) => {
-  fetch("http://data.nba.net/data/10s/prod/v1/2020/players.json", {
+  fetch("http://data.nba.net/data/10s/prod/v1/2019/players.json", {
     method: "GET",
   })
     .then((res) => res.json())
@@ -41,4 +41,22 @@ exports.getPlayers = async (req, res) => {
       });
     })
     .catch((err) => catchError(res, err));
+};
+
+exports.getPlayerGamelog = async (req, res) => {
+  const { id } = req.params;
+
+  fetch(`http://data.nba.net/prod/v1/2019/players/${id}_gamelog.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      const {
+        league: { standard },
+      } = data;
+
+      res.status(200).json({
+        statusCode: 200,
+        games: standard,
+      });
+    })
+    .catch((err) => catchError(req, err));
 };

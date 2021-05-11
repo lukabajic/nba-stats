@@ -14,3 +14,9 @@ body {
   color: #ffffff;
   font-weight: 400;
 }
+
+@media only screen and (max-width: 576px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import cn from "classnames";
 
-import teams from "../../utls/teams";
-import { Spinner } from "../../components/Loader";
+import teams from "../../../utls/teams";
+import { Spinner } from "../../../components/Loader";
 
 import "./styles.scss";
 

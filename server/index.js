@@ -1,9 +1,12 @@
 const express = require("express");
 
-const PORT = process.env.PORT || 3001;
+const routes = require("./routes");
 
 const app = express();
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
+app.use(express.static("dist"));
+app.use("/api", routes);
+
+app.listen(process.env.PORT || 8080, () =>
+  console.log(`Listening on port ${process.env.PORT || 8080}!`)
+);

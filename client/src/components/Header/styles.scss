@@ -11,6 +11,11 @@
 
   background-color: #17408b;
 
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
   &__logo {
     padding: 1rem;
     border-radius: 1rem;

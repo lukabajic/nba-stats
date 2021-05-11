@@ -1,36 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
 
-import teams from "../../utls/teams";
+import Player from "./Player";
 
 import "./styles.scss";
 
-const Player = ({ id, firstName, lastName, teamId, position }) => {
+const PlayerList = ({ players }) => {
+  const [data, setData] = useState(players?.slice(0, 10));
+  const playersShown = useRef(10);
+
+  const handleScroll = () => {
+    if (
+      data.length < players.length &&
+      window.scrollY + window.innerHeight ===
+        document.documentElement.offsetHeight
+    ) {
+      playersShown.current++;
+      setData(players?.slice(0, playersShown.current));
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
   return (
-    <Link className="Player" to={`/player/${id}`} key={id + teamId}>
-      <img
-        src={`https://cdn.nba.com/headshots/nba/latest/260x190/${id}.png`}
-        alt=""
-        className="Player__image"
-      />
-      <div className="Player__display-name">
-        <p className="Player__first-name">{firstName}</p>
-        <p className="Player__last-name">{lastName}</p>
-      </div>
-      <div className="Player__info">
-        <p className="Player__team">{teams[teamId]?.abbreviation}</p>
-        <p className="Player__position">{position}</p>
-      </div>
-    </Link>
+    <div className="PlayersList">
+      {data?.map((p) => (
+        <Player {...p} key={p.id} />
+      ))}
+    </div>
   );
 };
-
-const PlayerList = ({ players }) => (
-  <div className="PlayersList">
-    {players?.map((p) => (
-      <Player {...p} />
-    ))}
-  </div>
-);
 
 export default PlayerList;

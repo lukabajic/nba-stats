@@ -1,0 +1,28 @@
+.Stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 1.5rem;
+
+  &:not(:last-child) {
+    margin: 0 1.5rem 1rem;
+  }
+
+  &__name {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: var(--black);
+  }
+
+  &__amount {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: var(--black);
+
+    span {
+      color: var(--gray);
+      margin-left: 0.5rem;
+    }
+  }
+}
